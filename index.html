@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chemistry by Design</title>
+<meta name="description" content="Discover your communication style and learn how to adapt it to the person across the table.">
+<style>
+:root{--bg:#0b1020;--card:#121a2d;--card2:#17223b;--text:#f7f8fb;--muted:#aab4c8;--line:#2a3858;--a:#7dd3fc;--b:#c4b5fd}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#0b1020,#111827);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;min-height:100vh}
+.wrap{max-width:980px;margin:auto;padding:24px 18px 70px}.brand{font-weight:850;letter-spacing:-.02em}.brand span{color:var(--a)}
+nav{display:flex;justify-content:space-between;align-items:center}.pill,.chip{border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:var(--muted);font-size:12px}
+.hero{text-align:center;padding:70px 0 35px}.kicker{color:var(--a);text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:12px}
+h1{font-size:clamp(42px,7vw,72px);line-height:.98;letter-spacing:-.055em;margin:12px auto 18px;max-width:850px}.lead{max-width:700px;margin:0 auto 28px;color:var(--muted);font-size:19px;line-height:1.55}
+button{border:0;border-radius:12px;padding:13px 18px;background:#fff;color:#111827;font-weight:800;font-size:15px;cursor:pointer}button.alt{background:transparent;color:#fff;border:1px solid var(--line)}button:disabled{opacity:.45;cursor:not-allowed}
+.cards,.cols,.plays{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card,.play{background:rgba(18,26,45,.9);border:1px solid var(--line);border-radius:18px;padding:21px}.card h3,.play h3{margin:0 0 8px}.card p,.muted{color:var(--muted);line-height:1.55}
+.page{display:none}.page.on{display:block}.panel{max-width:820px;margin:28px auto}.progress{height:8px;background:#1d2943;border-radius:99px;overflow:hidden;margin:20px 0 28px}.progress div{height:100%;background:linear-gradient(90deg,var(--a),var(--b))}
+.question{font-size:27px;font-weight:800;letter-spacing:-.025em;margin:8px 0 22px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}.choice{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:16px;min-height:92px}.choice b{display:block;margin-bottom:5px}.choice span{color:var(--muted);font-size:14px}
+.scale,.mini{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:15px}.scale button,.mini button{padding:10px 4px;background:#182441;color:var(--muted);border:1px solid var(--line)}.scale button.sel,.mini button.sel{border-color:var(--a);color:#fff;background:#1d3152}.labels{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:7px}.row{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:24px}
+.result{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.big{font-size:48px;font-weight:900;letter-spacing:-.04em;margin:7px 0}.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+.chart{position:relative;min-height:310px;border:1px solid var(--line);border-radius:18px;background:#10182b;overflow:hidden}.chart:before,.chart:after{content:"";position:absolute;background:var(--line)}.chart:before{height:1px;left:0;right:0;top:50%}.chart:after{width:1px;top:0;bottom:0;left:50%}.lab{position:absolute;font-size:11px;color:var(--muted);font-weight:800}.tl{top:12px;left:12px}.tr{top:12px;right:12px}.bl{bottom:12px;left:12px}.br{bottom:12px;right:12px}.dot{position:absolute;width:25px;height:25px;border-radius:50%;background:#fff;border:5px solid var(--a);transform:translate(-50%,-50%)}
+.meter{display:grid;grid-template-columns:88px 1fr 42px;gap:8px;align-items:center;margin:10px 0}.track{height:8px;background:#1b2843;border-radius:99px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--a),var(--b))}
+.cols{grid-template-columns:1fr 1fr;margin-top:14px}.list{padding-left:18px;color:#e7eef9}.list li{margin:8px 0}.targetq{margin:14px 0;padding:15px;border:1px solid var(--line);border-radius:14px;background:#101a30}.targetq p{font-weight:750;margin:0 0 8px}label{font-size:13px;font-weight:800}input,select{width:100%;padding:12px;margin-top:6px;background:#0e1729;border:1px solid var(--line);border-radius:11px;color:#fff}.form{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.plays{grid-template-columns:1fr 1fr;margin-top:14px}.play h3{color:var(--a);font-size:12px;text-transform:uppercase;letter-spacing:.08em}.play p{margin:0;line-height:1.55}.quote{font-size:20px;line-height:1.5;border-left:3px solid var(--a);padding-left:16px}
+.note{font-size:12px;color:#8492aa;line-height:1.5;margin-top:16px}footer{text-align:center;color:#738099;font-size:12px;margin-top:50px}
+@media(max-width:720px){.cards,.cols,.plays,.result,.pair,.form{grid-template-columns:1fr}.question{font-size:22px}.chart{min-height:280px}}
+</style>
+</head>
+<body><div class="wrap">
+<nav><div class="brand">Chemistry <span>by Design</span></div><div class="pill">Prototype v0.2</div></nav>
+
+<section id="home" class="page on"><div class="hero">
+<div class="kicker">Read the room. Adapt your approach.</div>
+<h1>Know your style.<br>Learn how to flex it.</h1>
+<p class="lead">A short communication-style assessment that shows your default way of operating, your blind spots, and how to adjust when the person across the table is wired differently.</p>
+<button onclick="start()">Take the assessment →</button>
+<div class="cards" style="margin-top:34px">
+<div class="card"><h3>Discover your default</h3><p>See where you land across task vs. people focus and reserved vs. expressive communication.</p></div>
+<div class="card"><h3>Read the other person</h3><p>Use observable behavior to form a working communication profile.</p></div>
+<div class="card"><h3>Get your playbook</h3><p>Learn what to dial up, dial down, how to open, and what to ask.</p></div>
+</div></div></section>
+
+<section id="test" class="page"><div class="panel card">
+<div class="kicker">Your communication profile</div><div class="progress"><div id="bar"></div></div><div id="q"></div>
+<div class="row"><button class="alt" id="back" onclick="prev()">← Back</button><button id="next" onclick="next()" disabled>Next →</button></div>
+</div></section>
+
+<section id="result" class="page"><div class="panel">
+<div class="result">
+<div class="card"><div class="kicker">Your default style</div><div class="big" id="typename"></div><p class="muted" id="desc"></p><div class="chips" id="chips"></div><div id="meters" style="margin-top:18px"></div></div>
+<div class="chart"><span class="lab tl">DEFENDER</span><span class="lab tr">DIRECTOR</span><span class="lab bl">TEAMMATE</span><span class="lab br">CREATOR</span><div class="dot" id="dot"></div></div>
+</div>
+<div class="cols"><div class="card"><h3>Natural strengths</h3><ul class="list" id="strengths"></ul></div><div class="card"><h3>Growth edge</h3><ul class="list" id="growth"></ul></div></div>
+<div class="card" style="margin-top:14px"><h3>Build your left hand</h3><p class="muted" id="practice"></p></div>
+<div class="row"><button class="alt" onclick="show('home')">Start over</button><button onclick="targetStart()">Analyze someone →</button></div>
+</div></section>
+
+<section id="target" class="page"><div class="panel card">
+<div class="kicker">Chemistry map</div><h2 style="font-size:34px;margin:8px 0">Who are you trying to reach?</h2><p class="muted">Answer from behavior you have actually observed. This is a working communication hypothesis, not a diagnosis.</p>
+<div class="form"><label>Their first name<input id="tname" placeholder="e.g. Sarah"></label><label>Your goal<select id="goal"><option>Win a sales pitch</option><option>Raise capital</option><option>Perform well in an interview</option><option>Have a better 1:1</option><option>Resolve a disagreement</option><option>Build rapport</option></select></label></div>
+<div id="tqs"></div><div class="row"><button class="alt" onclick="show('result')">← Back</button><button id="build" onclick="playbook()" disabled>Build my playbook →</button></div>
+</div></section>
+
+<section id="book" class="page"><div class="panel">
+<div class="card"><div class="kicker">Your Chemistry Playbook</div><h2 id="match" style="font-size:38px;margin:8px 0"></h2><p class="muted" id="summary"></p><div class="chips" id="targetchips"></div></div>
+<div class="card" style="margin-top:14px"><div class="kicker">Recommended opening</div><p class="quote" id="opening"></p></div>
+<div class="plays"><div class="play"><h3>Dial up</h3><p id="up"></p></div><div class="play"><h3>Dial down</h3><p id="down"></p></div><div class="play"><h3>Structure</h3><p id="structure"></p></div><div class="play"><h3>Best question</h3><p id="ask"></p></div><div class="play"><h3>Watch for</h3><p id="watch"></p></div><div class="play"><h3>Follow-up</h3><p id="follow"></p></div></div>
+<div class="card" style="margin-top:14px"><h3>Your specific adaptation</h3><p class="muted" id="adapt"></p></div>
+<div class="row"><button class="alt" onclick="targetStart()">Analyze another</button><button onclick="copyBook()">Copy playbook</button></div>
+<p class="note">Use this to adapt your own communication. Do not use it to make high-stakes judgments about another person's ability, character, employment suitability, creditworthiness, health, or similar decisions.</p>
+</div></section>
+
+<footer>Chemistry by Design · Interactive concept prototype</footer>
+</div>
+<script>
+var qs=[
+["f","I naturally lead with the task, outcome, or decision.","I naturally lead with people, context, or relationship."],
+["e","I prefer to think before I speak.","I think best out loud with other people."],
+["f","When time is tight, I prioritize getting the answer right.","When time is tight, I prioritize keeping people aligned."],
+["e","New people usually experience me as measured or private.","New people usually experience me as open or animated."],
+["f","I notice inefficiency before I notice tension.","I notice tension before I notice inefficiency."],
+["e","I reveal information selectively until trust is built.","I share freely and build trust through openness."],
+["f","In meetings, I want a clear objective and decision.","In meetings, I want participation and shared understanding."],
+["e","I am comfortable with silence while people think.","I prefer energetic back-and-forth."],
+["f","I am more persuaded by logic, evidence, and execution.","I am more persuaded by impact on people and relationships."],
+["e","I tend to keep my reactions contained.","People can usually read my reactions quickly."],
+["f","I would rather be seen as demanding than vague.","I would rather be seen as considerate than forceful."],
+["e","I prepare my point before jumping into discussion.","I jump in and refine my point as we go."],
+["f","I challenge an idea directly when I think it is weak.","I soften disagreement to preserve connection."],
+["e","My default communication is controlled and compact.","My default communication is expressive and expansive."]
+];
+var a=[],i=0,me=null;
+var types={
+Defender:{d:"Focused, measured, and process-minded. You build confidence through preparation, evidence, reliability, and thoughtful execution.",c:["Precise","Prepared","Independent","Process-aware"],s:["Creates clarity from complexity","Anticipates risks and details","Builds trust through reliability"],g:["Move to the headline faster","Show more of your thinking earlier","Invest explicitly in relationship signals"],p:"Present one idea before it feels fully finished. Lead with the conclusion, then invite reaction."},
+Director:{d:"Focused, fast-moving, and direct. You create momentum by clarifying the objective, making decisions, and pushing toward outcomes.",c:["Decisive","Direct","Fast","Outcome-oriented"],s:["Creates momentum","Comfortable making decisions","Keeps conversations outcome-focused"],g:["Slow down enough to hear unstated concerns","Explain the why, not only the what","Use curiosity before challenge"],p:"In one important conversation, ask two questions before offering your solution."},
+Teammate:{d:"People-focused, thoughtful, and relationship-aware. You build trust through consistency, listening, context, and genuine consideration.",c:["Steady","Empathetic","Loyal","Collaborative"],s:["Creates trust and safety","Notices stakeholder impact","Strong listener"],g:["State your own position earlier","Separate disagreement from relationship damage","Use firmer asks and deadlines"],p:"State your recommendation in one clear sentence before adding context."},
+Creator:{d:"People-focused, expressive, and possibility-oriented. You create energy through ideas, stories, connection, and enthusiasm.",c:["Expressive","Imaginative","Social","Possibility-oriented"],s:["Generates energy and possibilities","Connects ideas and people","Makes communication memorable"],g:["Finish the point before opening new ones","Add evidence for skeptical audiences","Leave room for quieter people"],p:"Before one meeting, write one headline, three supporting facts, and one ask. Deliver those before improvising."}
+};
+function show(x){document.querySelectorAll(".page").forEach(function(n){n.classList.remove("on")});document.getElementById(x).classList.add("on");window.scrollTo(0,0)}
+function start(){a=new Array(qs.length).fill(null);i=0;show("test");render()}
+function render(){var z=qs[i];document.getElementById("bar").style.width=(i/qs.length*100)+"%";document.getElementById("q").innerHTML='<div class="kicker">Question '+(i+1)+' of '+qs.length+'</div><div class="question">Which sounds more like your natural default?</div><div class="pair"><div class="choice"><b>A</b><span>'+z[1]+'</span></div><div class="choice"><b>B</b><span>'+z[2]+'</span></div></div><div class="scale">'+[1,2,3,4,5].map(function(v){return '<button class="'+(a[i]===v?'sel':'')+'" onclick="pick('+v+')">'+v+'</button>'}).join("")+'</div><div class="labels"><span>Strongly A</span><span>In between</span><span>Strongly B</span></div>';document.getElementById("back").disabled=i===0;document.getElementById("next").disabled=a[i]===null;document.getElementById("next").textContent=i===qs.length-1?"See my profile →":"Next →"}
+function pick(v){a[i]=v;render()}function prev(){if(i>0){i--;render()}}function next(){if(a[i]===null)return;if(i<qs.length-1){i++;render()}else score()}
+function weights(x,y){var cs={Defender:[-1,-1],Director:[1,-1],Teammate:[-1,1],Creator:[1,1]},w={},sum=0;Object.keys(cs).forEach(function(k){var q=cs[k],v=Math.exp(1.45*(q[0]*x+q[1]*y));w[k]=v;sum+=v});Object.keys(w).forEach(function(k){w[k]=Math.round(w[k]/sum*100)});var d=100-Object.values(w).reduce(function(u,v){return u+v},0);w.Defender+=d;return w}
+function score(){var f=[],e=[];qs.forEach(function(q,j){var v=(a[j]-3)/2;(q[0]==="f"?f:e).push(v)});var y=f.reduce(function(u,v){return u+v},0)/f.length,x=e.reduce(function(u,v){return u+v},0)/e.length,n=y<0?(x<0?"Defender":"Director"):(x<0?"Teammate":"Creator");me={x:x,y:y,n:n,w:weights(x,y)};var t=types[n];document.getElementById("typename").textContent=n;document.getElementById("desc").textContent=t.d;document.getElementById("chips").innerHTML=t.c.map(function(v){return '<span class="chip">'+v+'</span>'}).join("");document.getElementById("strengths").innerHTML=t.s.map(function(v){return '<li>'+v+'</li>'}).join("");document.getElementById("growth").innerHTML=t.g.map(function(v){return '<li>'+v+'</li>'}).join("");document.getElementById("practice").textContent=t.p;document.getElementById("meters").innerHTML=Object.keys(me.w).map(function(k){return '<div class="meter"><span>'+k+'</span><div class="track"><div class="fill" style="width:'+me.w[k]+'%"></div></div><b>'+me.w[k]+'%</b></div>'}).join("");document.getElementById("dot").style.left=((x+1)/2*100)+"%";document.getElementById("dot").style.top=((y+1)/2*100)+"%";show("result")}
+var tqs=[["f","They move quickly toward the task, outcome, or decision.",0],["f","They spend meaningful time on rapport, people, and stakeholder impact.",1],["e","They share reactions, stories, and opinions openly.",1],["e","They are measured, selective, or private in what they disclose.",0],["f","When challenged, they return to facts, standards, or execution.",0],["f","They are highly attentive to harmony, inclusion, and how things land.",1],["e","They think out loud and enjoy energetic back-and-forth.",1],["e","They prefer time to process before responding.",0]],ta=[];
+function targetStart(){ta=new Array(tqs.length).fill(null);show("target");renderTarget()}
+function renderTarget(){document.getElementById("tqs").innerHTML=tqs.map(function(q,j){return '<div class="targetq"><p>'+(j+1)+'. '+q[1]+'</p><div class="mini">'+[1,2,3,4,5].map(function(v){return '<button class="'+(ta[j]===v?'sel':'')+'" onclick="tpick('+j+','+v+')">'+v+'</button>'}).join("")+'</div><div class="labels"><span>Not like them</span><span>Very much like them</span></div></div>'}).join("");document.getElementById("build").disabled=ta.some(function(v){return v===null})}
+function tpick(j,v){ta[j]=v;renderTarget()}
+var rules={
+Defender:["I’ve organized this around the decision, the evidence behind it, and the risks we’ve already thought through.","Preparation, specifics, proof, sequencing, realistic timelines.","Hype, improvisation, pressure for an instant answer.","Headline → evidence → process → risks → next steps.","What would you need to verify before you would feel comfortable moving forward?","Questions about implementation, edge cases, downside, and ownership.","Send a concise written recap with facts, responsibilities, timing, and open questions."],
+Director:["I know your time is tight, so I’ll get right to it: here’s the problem, the outcome, and the three options.","Brevity, confidence, choices, business impact, speed.","Long backstory, hedging, and too many details before the point.","Conclusion → options → recommendation → evidence → decision.","Which option best matches the outcome you want?","Impatience, compressed questions, and challenges to assumptions.","Send the decision, owner, and next step. Keep it short."],
+Teammate:["Before we jump into the solution, I want to understand what matters most to you and the people affected.","Listening, context, trust, inclusion, reassurance.","Hard pressure, abrupt disagreement, and transactional language.","Connection → concerns → recommendation → collaborative path.","Who else needs to feel good about this, and what would help them support it?","Unspoken hesitation and concern about stakeholder impact.","Recap what you heard before restating the action."],
+Creator:["I think there’s a bigger opportunity here, and I want to show you what this could become—not just what it solves today.","Energy, possibility, stories, visuals, novelty.","Dense detail, rigid scripts, and long process explanations.","Vision → human payoff → co-create → one concrete next step.","If this worked exactly the way you want, what would the most exciting version look like?","Fast pivots, new ideas, and enthusiasm that outruns commitment.","Keep the energy alive, but turn it into one explicit commitment."]
+};
+function targetScore(){var f=[],e=[];tqs.forEach(function(q,j){var v=(ta[j]-3)/2;if(q[2])v=-v;(q[0]==="f"?f:e).push(v)});var y=-(f.reduce(function(u,v){return u+v},0)/f.length),x=-(e.reduce(function(u,v){return u+v},0)/e.length),n=y<0?(x<0?"Defender":"Director"):(x<0?"Teammate":"Creator");return{x:x,y:y,n:n,w:weights(x,y)}}
+function adap(a,b,n){if(a===b)return "Your defaults are similar. Use the shared style, but watch for overdoing it. Name the decision criteria and create a clear next step.";var m={"Creator-Director":"Give the headline and recommendation first; earn the right to expand.","Creator-Defender":"Slow the pace, bring evidence, and make the process visible before asking for excitement.","Creator-Teammate":"Let your energy help, but create space to listen and show the relationship matters.","Director-Creator":"Do not shut down possibility too early. Give room to explore before forcing convergence.","Director-Defender":"Keep the headline crisp, but expect to substantiate it. Treat detail questions as risk management.","Director-Teammate":"Add context and curiosity before pressing for commitment.","Defender-Director":"Lead with the conclusion and keep supporting detail ready for when it is requested.","Defender-Creator":"Engage the vision first, then help convert it into a workable path.","Defender-Teammate":"Balance correctness with explicit listening and stakeholder impact.","Teammate-Director":"Be warm but brief, state the objective early, and do not hide your recommendation.","Teammate-Defender":"Bring structure, evidence, and clear ownership alongside your relational approach.","Teammate-Creator":"Enjoy the energy, then summarize and convert it into one concrete decision."};return m[a+"-"+b]||"Flex toward how they receive information without pretending to become a different person."}
+function playbook(){var t=targetScore(),n=document.getElementById("tname").value.trim()||"Your counterpart",r=rules[t.n];document.getElementById("match").textContent=me.n+" → "+t.n;document.getElementById("summary").textContent=n+" appears closest to a "+t.n+" communication style based on your observations. "+(me.n===t.n?"Your defaults are relatively aligned.":"Your defaults differ, so the opportunity is to flex how you deliver your message.");document.getElementById("targetchips").innerHTML=Object.keys(t.w).map(function(k){return '<span class="chip">'+k+" "+t.w[k]+'%</span>'}).join("");["opening","up","down","structure","ask","watch","follow"].forEach(function(id,j){document.getElementById(id).textContent=r[j]});document.getElementById("adapt").textContent=adap(me.n,t.n,n);show("book")}
+function copyBook(){var ids=["match","summary","opening","up","down","structure","ask","watch","follow","adapt"],txt=ids.map(function(id){return document.getElementById(id).textContent}).join("\n\n");navigator.clipboard.writeText(txt).then(function(){alert("Playbook copied.")}).catch(function(){alert("Copy is not available in this browser.")})}
+</script></body></html>
